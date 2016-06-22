@@ -7,7 +7,7 @@ import by.amushinsky.algorithms.basic.api.Stack;
 public class ResizingArrayStack<T> implements Stack<T> {
 
   @SuppressWarnings("unchecked")
-  private T[] items = (T[]) new Object[1];
+  private T[] items = (T[]) new Object[2];
   private int N = 0;
 
   @Override
@@ -18,23 +18,31 @@ public class ResizingArrayStack<T> implements Stack<T> {
   @Override
   public void push(T item) {
     if (N == items.length) {
-      resize(2 * items.length);
+      resize(items.length << 1);
     }
     items[N++] = item;
   }
 
   @Override
   public T pop() {
+    if (isEmpty()) {
+      throw new IllegalStateException("Pop an empty stack.");
+    }
+
     T t = items[--N];
     items[N] = null;
-    if (N > 0 && N == items.length/4) {
-      resize(items.length/2);
+    if (N > 0 && N == items.length >> 2) {
+      resize(items.length >> 1);
     }
     return t;
   }
   
   @Override
   public T peek() {
+    if (isEmpty()) {
+      throw new IllegalStateException("Pop an empty stack.");
+    }
+
     return items[N-1];
   }
 

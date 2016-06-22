@@ -26,10 +26,15 @@ public class LinkedListQueue<T> implements Queue<T> {
     } else {
       oldLast.next = last;
     }
+    N++;
   }
 
   @Override
   public T dequeue() {
+    if (isEmpty()) {
+      throw new IllegalStateException("Dequeue an empty queue");
+    }
+
     T item = first.item;
     first = first.next;
     if (isEmpty()) {

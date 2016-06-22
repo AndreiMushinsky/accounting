@@ -25,6 +25,10 @@ public class LinkedListStack<T> implements Stack<T> {
 
   @Override
   public T pop() {
+    if (isEmpty()) {
+      throw new IllegalStateException("Pop an empty stack.");
+    }
+
     T item = first.item;
     first = first.next;
     N--;
@@ -33,6 +37,10 @@ public class LinkedListStack<T> implements Stack<T> {
 
   @Override
   public T peek() {
+    if (isEmpty()) {
+      throw new IllegalStateException("Peek an empty stack.");
+    }
+
     return first.item;
   }
 
