@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import by.amushinsky.algorithms.basic.api.Deque;
-import by.amushinsky.algorithms.basic.api.Queue;
 
 public class LinkedListDequeTest {
 
