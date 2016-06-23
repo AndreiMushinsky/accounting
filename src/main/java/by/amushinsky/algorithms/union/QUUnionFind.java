@@ -4,8 +4,8 @@ import by.amushinsky.algorithms.union.api.UnionFind;
 
 public class QUUnionFind implements UnionFind {
 
-  private int[] ids;
-  private int count;
+  protected int[] ids;
+  protected int count;
 
   public QUUnionFind(int N) {
     count = N;

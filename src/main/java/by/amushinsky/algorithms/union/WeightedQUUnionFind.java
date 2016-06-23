@@ -1,19 +1,11 @@
 package by.amushinsky.algorithms.union;
 
-import by.amushinsky.algorithms.union.api.UnionFind;
+public class WeightedQUUnionFind extends QUUnionFind {
 
-public class WeightedQUUnionFind implements UnionFind {
-
-  private int[] ids;
-  private int[] szs;
-  private int count;
+  protected int[] szs;
 
   public WeightedQUUnionFind(int N) {
-    count = N;
-    ids = new int[N];
-    for (int i = 0; i < N; i++) {
-      ids[i] = i;
-    }
+    super(N);
     szs = new int[N];
     for (int i = 0; i < szs.length; i++) {
       szs[i] = 1;
@@ -34,24 +26,6 @@ public class WeightedQUUnionFind implements UnionFind {
       }
       count--;
     }
-  }
-
-  @Override
-  public int find(int p) {
-    while (p != ids[p]) { 
-      p = ids[p];
-    }
-    return p;
-  }
-
-  @Override
-  public boolean connected(int p, int q) {
-    return find(p) == find(q);
-  }
-
-  @Override
-  public int count() {
-    return count;
   }
 
 }
