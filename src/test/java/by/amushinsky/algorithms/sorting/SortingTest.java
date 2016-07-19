@@ -79,4 +79,30 @@ public class SortingTest {
       Assert.assertArrayEquals(expected, chars);
     }
   }
+
+  @Test
+  public void quick() throws Exception {
+    try (Scanner scan = new Scanner(file)) {
+      int N = scan.nextInt();
+      Character[] chars = new Character[N];
+      for (int i = 0; i < chars.length; i++) {
+        chars[i] = (char) scan.next().charAt(0);
+      }
+      Quick.sort(chars);
+      Assert.assertArrayEquals(expected, chars);
+    }
+  }
+
+  @Test
+  public void quick3Way() throws Exception {
+    try (Scanner scan = new Scanner(file)) {
+      int N = scan.nextInt();
+      Character[] chars = new Character[N];
+      for (int i = 0; i < chars.length; i++) {
+        chars[i] = (char) scan.next().charAt(0);
+      }
+      Quick3Way.sort(chars);
+      Assert.assertArrayEquals(expected, chars);
+    }
+  }
 }
